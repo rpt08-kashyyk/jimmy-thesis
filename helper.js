@@ -183,22 +183,21 @@ function divide(raw) {
   }
 }
 
-function test(raw) {
-  for (var i = 0; i < raw.length; i++) {
-    for (var j = 0; j < raw[i].ratings.length; j++) {
-      raw[i].accuracy = Math.ceil((raw[i].accuracy / raw[i].ratings.length) * 2) / 2;
-      raw[i].communication = Math.ceil((raw[i].communication / raw[i].ratings.length) * 2) / 2;
-      raw[i].cleanliness = Math.ceil((raw[i].cleanliness / raw[i].ratings.length) * 2) / 2;
-      raw[i].location = Math.ceil((raw[i].location / raw[i].ratings.length) * 2) / 2;
-      raw[i].checkin = Math.ceil((raw[i].checkin / raw[i].ratings.length) * 2) / 2;
-      raw[i].value = Math.ceil((raw[i].value / raw[i].ratings.length) * 2) / 2;
-    }
-  }
-}
-
 function changeId(raw) {
   for (var i = 0; i < raw.length; i++) {
     raw[i]._id = raw[i].id;
   }
 }
+
+function roundNearest10th(raw) {
+  for (var i = 0; i < raw.length; i++) {
+    raw[i].accuracy = Math.ceil(raw[i].accuracy / raw[i].ratings.length * 2) / 2;
+    raw[i].communication = Math.ceil(raw[i].communication / raw[i].ratings.length * 2) / 2;
+    raw[i].cleanliness = Math.ceil(raw[i].cleanliness / raw[i].ratings.length * 2) / 2;
+    raw[i].location = Math.ceil(raw[i].location / raw[i].ratings.length * 2) / 2;
+    raw[i].checkin = Math.ceil(raw[i].checkin / raw[i].ratings.length * 2) / 2;
+    raw[i].value = Math.ceil(raw[i].value / raw[i].ratings.length * 2) / 2;
+  }
+}
+
 
