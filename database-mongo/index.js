@@ -12,33 +12,29 @@ db.once('open', function() {
 });
 
 var fireSchema = mongoose.Schema({
-   _id: Number,
-   accuracy: Number,
-   communication: Number,
-   cleanliness: Number,
-   location: Number,
-   checkin: Number,
-   value: Number,
-   ratings: [
-      {
-         accuracy: Number,
-         communication: Number,
-         cleanliness: Number,
-         location: Number,
-         checkin: Number,
-         value: Number
-      }
-   ],
-   comments: [
-      {
-         username: String,
-         date: String,
-         comment: String,
-      }
-   ],
-   totalReviews: Number,
-   userImage: String,
-   flag: String
+  _id: Number,
+  accuracy: Number,
+  communication: Number,
+  cleanliness: Number,
+  location: Number,
+  checkin: Number,
+  value: Number,
+  reviews: [
+    {
+      accuracy: Number,
+      communication: Number,
+      cleanliness: Number,
+      location: Number,
+      checkin: Number,
+      value: Number,
+      username: String,
+      date: String,
+      comment: String,
+      userImage: String
+    }
+  ],
+  totalReviews: Number,
+  flag: String
 });
 
 var fireBnb = mongoose.model('Property', fireSchema);

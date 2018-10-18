@@ -6,24 +6,20 @@
    location: Number,
    checkin: Number,
    value: Number,
-   ratings: [
+   reviews: [
       {
          accuracy: Number,
          communication: Number,
          cleanliness: Number,
          location: Number,
          checkin: Number,
-         value: Number
-      }
-   ],
-   comments: [
-      {
+         value: Number,
          username: String,
          date: String,
          comment: String,
+         userImage: String
       }
    ],
    totalReviews: Number,
-   userImage: String,
    flag: String
 }
