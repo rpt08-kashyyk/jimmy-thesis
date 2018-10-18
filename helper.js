@@ -170,17 +170,35 @@ function addSum(raw) {
   }
 }
 
-function test(raw) {
+function divide(raw) {
   for (var i = 0; i < raw.length; i++) {
     for (var j = 0; j < raw[i].ratings.length; j++) {
-      raw[i].accuracy = Math.ceil((raw[i].accuracy / raw[i].ratings.length)/5) * 5;
-      raw[i].communication = Math.ceil((raw[i].communication / raw[i].ratings.length)/5) * 5;
-      raw[i].cleanliness = Math.ceil((raw[i].cleanliness / raw[i].ratings.length)/5) * 5;
-      raw[i].location = Math.ceil((raw[i].location / raw[i].ratings.length)/5) * 5;
-      raw[i].checkin = Math.ceil((raw[i].checkin / raw[i].ratings.length)/5) * 5;
-      raw[i].value = Math.ceil((raw[i].value / raw[i].ratings.length)/5) * 5;
+      raw[i].accuracy = raw[i].accuracy / raw[i].ratings.length
+      raw[i].communication = raw[i].communication / raw[i].ratings.length
+      raw[i].cleanliness = raw[i].cleanliness / raw[i].ratings.length
+      raw[i].location = raw[i].location / raw[i].ratings.length
+      raw[i].checkin = raw[i].checkin / raw[i].ratings.length
+      raw[i].value = raw[i].value / raw[i].ratings.length
     }
   }
 }
 
+function test(raw) {
+  for (var i = 0; i < raw.length; i++) {
+    for (var j = 0; j < raw[i].ratings.length; j++) {
+      raw[i].accuracy = Math.ceil((raw[i].accuracy / raw[i].ratings.length) * 2) / 2;
+      raw[i].communication = Math.ceil((raw[i].communication / raw[i].ratings.length) * 2) / 2;
+      raw[i].cleanliness = Math.ceil((raw[i].cleanliness / raw[i].ratings.length) * 2) / 2;
+      raw[i].location = Math.ceil((raw[i].location / raw[i].ratings.length) * 2) / 2;
+      raw[i].checkin = Math.ceil((raw[i].checkin / raw[i].ratings.length) * 2) / 2;
+      raw[i].value = Math.ceil((raw[i].value / raw[i].ratings.length) * 2) / 2;
+    }
+  }
+}
+
+function changeId(raw) {
+  for (var i = 0; i < raw.length; i++) {
+    raw[i]._id = raw[i].id;
+  }
+}
 

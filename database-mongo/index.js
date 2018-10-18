@@ -1,22 +1,47 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+// mongoose.connect('mongodb://localhost/fec');
 
 var db = mongoose.connection;
 
-db.on('error', function() {
-  console.log('mongoose connection error');
+// db.on('error', function() {
+//   console.log('mongoose connection error');
+// });
+
+// db.once('open', function() {
+//   console.log('mongoose connected successfully');
+// });
+
+var fireSchema = mongoose.Schema({
+   _id: Number,
+   accuracy: Number,
+   communication: Number,
+   cleanliness: Number,
+   location: Number,
+   checkin: Number,
+   value: Number,
+   ratings: [
+      {
+         accuracy: Number,
+         communication: Number,
+         cleanliness: Number,
+         location: Number,
+         checkin: Number,
+         value: Number
+      }
+   ],
+   comments: [
+      {
+         username: String,
+         date: String,
+         comment: String,
+      }
+   ],
+   totalReviews: Number,
+   userImage: String,
+   flag: String
 });
 
-db.once('open', function() {
-  console.log('mongoose connected successfully');
-});
-
-var itemSchema = mongoose.Schema({
-  quantity: Number,
-  description: String
-});
-
-var Item = mongoose.model('Item', itemSchema);
+var fireBnb = mongoose.model('Property', fireSchema);
 
 var selectAll = function(callback) {
   Item.find({}, function(err, items) {
@@ -28,4 +53,9 @@ var selectAll = function(callback) {
   });
 };
 
+function insertOne(story, callback) {
+  fireBnb.create(story, callback);
+}
+
 module.exports.selectAll = selectAll;
+exports.insertOne = insertOne;
