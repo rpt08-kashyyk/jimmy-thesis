@@ -40,13 +40,23 @@ var fireSchema = mongoose.Schema({
 var fireBnb = mongoose.model('Property', fireSchema);
 
 var selectAll = function(callback) {
-  fireBnb.find({}, function(err, items) {
+  fireBnb.find({}, function(err, data) {
     if(err) {
       callback(err, null);
     } else {
-      callback(null, items);
+      callback(null, data);
     }
   }).sort({_id: 1});
+};
+
+var selectId = function(id, callback) {
+  fireBnb.find({_id: id}, function(err, data) {
+    if(err) {
+      callback(err, null);
+    } else {
+      callback(null, data);
+    }
+  });
 };
 
 function insertOne(property, callback) {
@@ -54,4 +64,5 @@ function insertOne(property, callback) {
 }
 
 module.exports.selectAll = selectAll;
+module.exports.selectId = selectId;
 exports.insertOne = insertOne;
