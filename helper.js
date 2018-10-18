@@ -200,4 +200,51 @@ function roundNearest10th(raw) {
   }
 }
 
+function fixDates(raw) {
+  for (var i = 0; i < raw.length; i++) {
+    for (var j = 0; j < raw[i].comments.length; j++) {
+      var temp = raw[i].comments[j].date.split('/');
+      console.log('tempt', temp)
+      var month = temp[0];
+      console.log('month', month)
+      if (month === '1') {
+        raw[i].comments[j].date = `January ${temp[2]}`
+      }
+      if (month === '2') {
+        raw[i].comments[j].date = `February ${temp[2]}`
+      }
+      if (month === '3') {
+        raw[i].comments[j].date = `March ${temp[2]}`
+      }
+      if (month === '4') {
+        raw[i].comments[j].date = `April ${temp[2]}`
+      }
+      if (month === '5') {
+        raw[i].comments[j].date = `May ${temp[2]}`
+      }
+      if (month === '6') {
+        raw[i].comments[j].date = `June ${temp[2]}`
+      }
+      if (month === '7') {
+        raw[i].comments[j].date = `July ${temp[2]}`
+      }
+      if (month === '8') {
+        raw[i].comments[j].date = `August ${temp[2]}`
+      }
+      if (month === '9') {
+        raw[i].comments[j].date = `September ${temp[2]}`
+      }
+      if (month === '10') {
+        raw[i].comments[j].date = `October ${temp[2]}`
+      }
+      if (month === '11') {
+        raw[i].comments[j].date = `November ${temp[2]}`
+      }
+      if (month === '12') {
+        raw[i].comments[j].date = `December ${temp[2]}`
+      }
+
+    }
+  }
+}
 
