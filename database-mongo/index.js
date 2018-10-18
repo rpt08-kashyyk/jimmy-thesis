@@ -46,7 +46,7 @@ var selectAll = function(callback) {
     } else {
       callback(null, items);
     }
-  });
+  }).sort({_id: 1});
 };
 
 function insertOne(property, callback) {
