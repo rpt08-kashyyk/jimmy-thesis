@@ -25,7 +25,6 @@ function mergeComments(raw) {
       date: raw[i].date[4],
       comment: raw[i].comment[4]
     });
-
   }
 }
 
@@ -145,18 +144,6 @@ function calcAvg(raw) {
   }
 }
 
-function test(raw) {
-var data = [];
-  for (var i = 0; i < raw.length; i++) {
-    for (var j = 0; j < raw[i].ratings.length; j++) {
-      data.push(Object.values(raw[i].ratings[j]));
-      console.log(data);
-      // console.log(raw[i].ratings[j]);
-    }
-    // console.log(raw[0].ratings[i])
-  }
-}
-
 function addSum(raw) {
   for (var i = 0; i < raw.length; i++) {
     for (var j = 0; j < raw[i].ratings.length; j++) {
@@ -204,9 +191,7 @@ function fixDates(raw) {
   for (var i = 0; i < raw.length; i++) {
     for (var j = 0; j < raw[i].comments.length; j++) {
       var temp = raw[i].comments[j].date.split('/');
-      console.log('tempt', temp)
       var month = temp[0];
-      console.log('month', month)
       if (month === '1') {
         raw[i].comments[j].date = `January ${temp[2]}`
       }
@@ -243,7 +228,6 @@ function fixDates(raw) {
       if (month === '12') {
         raw[i].comments[j].date = `December ${temp[2]}`
       }
-
     }
   }
 }
