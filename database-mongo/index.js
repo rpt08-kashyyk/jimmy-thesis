@@ -49,8 +49,8 @@ var selectAll = function(callback) {
   });
 };
 
-function insertOne(story, callback) {
-  fireBnb.create(story, callback);
+function insertOne(property, callback) {
+  fireBnb.create(property, callback);
 }
 
 module.exports.selectAll = selectAll;
