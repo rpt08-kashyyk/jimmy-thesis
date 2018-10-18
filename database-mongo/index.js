@@ -1,15 +1,15 @@
 var mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost/fec');
+mongoose.connect('mongodb://localhost/fec');
 
 var db = mongoose.connection;
 
-// db.on('error', function() {
-//   console.log('mongoose connection error');
-// });
+db.on('error', function() {
+  console.log('mongoose connection error');
+});
 
-// db.once('open', function() {
-//   console.log('mongoose connected successfully');
-// });
+db.once('open', function() {
+  console.log('mongoose connected successfully');
+});
 
 var fireSchema = mongoose.Schema({
    _id: Number,
@@ -44,7 +44,7 @@ var fireSchema = mongoose.Schema({
 var fireBnb = mongoose.model('Property', fireSchema);
 
 var selectAll = function(callback) {
-  Item.find({}, function(err, items) {
+  fireBnb.find({}, function(err, items) {
     if(err) {
       callback(err, null);
     } else {
