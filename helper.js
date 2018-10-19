@@ -224,6 +224,19 @@ function fixDates(raw) {
   }
 }
 
+function randomize(raw) {
+  for (var i = 0; i < raw.length; i++) {
+    for (var j = 0; j < raw[i].reviews.length; j++) {
+      // console.log(raw[i].reviews);
+      var x = Math.floor(Math.random() * 3);
+      for (var k = 0; k < x; k++) {
+        raw[i].reviews.pop();
+      }
+    }
+  }
+}
+
+
 mergeObjs(data);
 fixDates(data);
 makeTotal(data);

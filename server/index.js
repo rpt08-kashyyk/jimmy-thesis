@@ -18,7 +18,9 @@ app.get('/data', function (req, res) {
 
 app.get('/data/:_id', function (req, res) {
 	db.selectId(req.params._id, function (err, data){
-		if (err) throw err;
+		if (err) {
+			console.log(err);
+		}
   	res.send(data);
 	})
 });

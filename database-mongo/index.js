@@ -59,10 +59,10 @@ var selectId = function(id, callback) {
   });
 };
 
-function insertOne(property, callback) {
+var insertOne = function(property, callback) {
   fireBnb.create(property, callback);
 }
 
 module.exports.selectAll = selectAll;
 module.exports.selectId = selectId;
-exports.insertOne = insertOne;
+module.exports.insertOne = insertOne;
