@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import Posts from './components/posts.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class App extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: '/data', 
+      url: '/data/1', 
       success: (data) => {
         this.setState({
           data: data
@@ -27,7 +28,9 @@ class App extends React.Component {
   render () {
     return (
       <div>
-      <h3>Hi</h3>
+      <Posts
+        data={this.state.data}
+      />
       </div>
     )
   }

@@ -16,8 +16,8 @@ app.get('/data', function (req, res) {
   });
 });
 
-app.get('/data/:_id', function (req, res) {
-	db.selectId(req.params._id, function (err, data){
+app.get('/data/:id', function (req, res) {
+	db.selectId(req.params.id, function (err, data){
 		if (err) {
 			console.log(err);
 		}

@@ -236,6 +236,20 @@ function randomize(raw) {
   }
 }
 
+function reviewAvgNum(raw) {
+  for (var i = 0; i < raw.length; i++) {
+    var avg = raw[i].accuracy +
+              raw[i].communication +
+              raw[i].cleanliness +
+              raw[i].location +
+              raw[i].checkin +
+              raw[i].value;
+    raw[i].totalReviews = {
+      average: Math.round(avg / 6 * 2) / 2,
+      total: raw[i].reviews.length
+    }
+  }
+}
 
 mergeObjs(data);
 fixDates(data);

@@ -20,6 +20,9 @@
          userImage: String
       }
    ],
-   totalReviews: Number,
+   totalReviews: {
+      average: Number,
+      total: Number
+   },
    flag: String
 }
