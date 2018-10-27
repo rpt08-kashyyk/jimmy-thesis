@@ -120,7 +120,7 @@ class App extends React.Component {
       <div>
       <select onChange={(e) => this.setProperty(parseInt(e.target.value))}>
         {this.state.ids.map((property, i)=>
-            <option key={i}>{property._id}</option>
+            <option key={i + 1}>{property._id}</option>
           )
         }
       </select>
