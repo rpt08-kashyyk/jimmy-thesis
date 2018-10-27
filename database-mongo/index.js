@@ -66,6 +66,28 @@ var insertOne = function(property, callback) {
   fireBnb.create(property, callback);
 }
 
+var searchComments = function(query, callback) {
+  fireBnb.find({ "reviews.comment" : query }, function(err, data) {
+    if(err) {
+      callback(err, null);
+    } else {
+      callback(null, data);
+    }
+  });
+};
+
+// var selectProperty = function(id, callback) {
+//   fireBnb.find({_id: id}, function(err, data) {
+//     if(err) {
+//       callback(err, null);
+//     } else {
+//       callback(null, data);
+//     }
+//   });
+// };
+
 module.exports.selectAll = selectAll;
 module.exports.selectId = selectId;
 module.exports.insertOne = insertOne;
+module.exports.searchComments = searchComments;
+// module.exports.selectProperty = selectProperty;

@@ -8,9 +8,11 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      data: []
+      data: [],
+      ids: []
     }
     this.reviewStars = this.reviewStars.bind(this);
+    this.setProperty = this.setProperty.bind(this);
   }
 
   componentDidMount() {
@@ -19,6 +21,17 @@ class App extends React.Component {
       success: (data) => {
         this.setState({
           data: data
+        })
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    });
+    $.ajax({
+      url: '/data/', 
+      success: (data) => {
+        this.setState({
+          ids: data
         })
       },
       error: (err) => {
@@ -88,9 +101,29 @@ class App extends React.Component {
     }
   }
 
+  setProperty (id) {
+    $.ajax({
+      url: '/data/' + id, 
+      success: (data) => {
+        this.setState({
+          data: data
+        })
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    });
+  }
+
   render () {
     return (
       <div>
+      <select onChange={(e) => this.setProperty(parseInt(e.target.value))}>
+        {this.state.ids.map((property, i)=>
+            <option key={i}>{property._id}</option>
+          )
+        }
+      </select>
       <Ratings
         data={this.state.data}
         star={this.reviewStars}

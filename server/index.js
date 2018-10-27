@@ -25,6 +25,12 @@ app.get('/data/:id', function (req, res) {
 	})
 });
 
+// app.get('/property/:id', function (req, res) {
+//   db.selectProperty((data) => {
+//     res.send(req.params.id);
+//   })
+// });
+
 app.listen(3000, function() {
   console.log('listening on port 3000!');
 });
