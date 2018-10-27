@@ -10,6 +10,7 @@ class App extends React.Component {
     this.state = { 
       data: []
     }
+    this.reviewStars = this.reviewStars.bind(this);
   }
 
   componentDidMount() {
@@ -26,11 +27,73 @@ class App extends React.Component {
     });
   }
 
+  reviewStars(num) {
+    var full = 'https://i.imgur.com/f4lW7l6.jpg';
+    var half = 'https://i.imgur.com/qrFidbO.jpg';
+    var empty = 'https://i.imgur.com/eOIxGeh.jpg';
+    if (num === 5) {
+      return (
+        <div>
+          <img src={full} height="24" width="24"/>
+          <img src={full} height="24" width="24"/>
+          <img src={full} height="24" width="24"/>
+          <img src={full} height="24" width="24"/>
+          <img src={full} height="24" width="24"/>
+        </div>
+      )
+    }
+    if (num === 4.5) {
+      return (
+        <div>
+          <img src={full} height="24" width="24"/>
+          <img src={full} height="24" width="24"/>
+          <img src={full} height="24" width="24"/>
+          <img src={full} height="24" width="24"/>
+          <img src={half} height="24" width="24"/>
+        </div>
+      )
+    }
+    if (num === 4) {
+      return (
+        <div>
+          <img src={full} height="24" width="24"/>
+          <img src={full} height="24" width="24"/>
+          <img src={full} height="24" width="24"/>
+          <img src={full} height="24" width="24"/>
+          <img src={empty} height="24" width="24"/>
+        </div>
+      )
+    }
+    if (num === 3.5) {
+      return (
+        <div>
+          <img src={full} height="24" width="24"/>
+          <img src={full} height="24" width="24"/>
+          <img src={full} height="24" width="24"/>
+          <img src={half} height="24" width="24"/>
+          <img src={empty} height="24" width="24"/>
+        </div>
+      )
+    }
+    if (num === 3) {
+      return (
+        <div>
+          <img src={full} height="24" width="24"/>
+          <img src={full} height="24" width="24"/>
+          <img src={full} height="24" width="24"/>
+          <img src={empty} height="24" width="24"/>
+          <img src={empty} height="24" width="24"/>
+        </div>
+      )
+    }
+  }
+
   render () {
     return (
       <div>
       <Ratings
         data={this.state.data}
+        star={this.reviewStars}
       />
       <Posts
         data={this.state.data}
