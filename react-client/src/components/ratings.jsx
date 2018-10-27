@@ -6,9 +6,9 @@ const Ratings = (props) => (
     	<div key={post._id}>
 	    	<h2>{`${post.totalReviews.total} Reviews `}</h2>
 	    	<h2>{props.star(post.totalReviews.average)}</h2>
-	    	{`Accuracy ${post.accuracy} Location ${post.location}`}<br></br>
-	    	{`Communication ${post.communication} Check-in ${post.checkin}`}<br></br>
-	    	{`Cleanliness ${post.cleanliness} Value ${post.value}`}<br></br>
+	    	{`Accuracy `}{props.star(post.accuracy)}{` Location `}{props.star(post.location)}<br></br>
+	    	{`Communication `}{props.star(post.communication)}{` Check-in `}{props.star(post.checkin)}<br></br>
+	    	{`Cleanliness `}{props.star(post.cleanliness)}{` Value `}{props.star(post.value)}<br></br>
 	    	<hr></hr>
     	</div>
     )}

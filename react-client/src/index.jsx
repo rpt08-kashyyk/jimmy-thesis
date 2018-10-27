@@ -34,55 +34,55 @@ class App extends React.Component {
     if (num === 5) {
       return (
         <div>
-          <img src={full} height="24" width="24"/>
-          <img src={full} height="24" width="24"/>
-          <img src={full} height="24" width="24"/>
-          <img src={full} height="24" width="24"/>
-          <img src={full} height="24" width="24"/>
+          <img src={full} height="20" width="20"/>
+          <img src={full} height="20" width="20"/>
+          <img src={full} height="20" width="20"/>
+          <img src={full} height="20" width="20"/>
+          <img src={full} height="20" width="20"/>
         </div>
       )
     }
     if (num === 4.5) {
       return (
         <div>
-          <img src={full} height="24" width="24"/>
-          <img src={full} height="24" width="24"/>
-          <img src={full} height="24" width="24"/>
-          <img src={full} height="24" width="24"/>
-          <img src={half} height="24" width="24"/>
+          <img src={full} height="20" width="20"/>
+          <img src={full} height="20" width="20"/>
+          <img src={full} height="20" width="20"/>
+          <img src={full} height="20" width="20"/>
+          <img src={half} height="20" width="20"/>
         </div>
       )
     }
     if (num === 4) {
       return (
         <div>
-          <img src={full} height="24" width="24"/>
-          <img src={full} height="24" width="24"/>
-          <img src={full} height="24" width="24"/>
-          <img src={full} height="24" width="24"/>
-          <img src={empty} height="24" width="24"/>
+          <img src={full} height="20" width="20"/>
+          <img src={full} height="20" width="20"/>
+          <img src={full} height="20" width="20"/>
+          <img src={full} height="20" width="20"/>
+          <img src={empty} height="20" width="20"/>
         </div>
       )
     }
     if (num === 3.5) {
       return (
         <div>
-          <img src={full} height="24" width="24"/>
-          <img src={full} height="24" width="24"/>
-          <img src={full} height="24" width="24"/>
-          <img src={half} height="24" width="24"/>
-          <img src={empty} height="24" width="24"/>
+          <img src={full} height="20" width="20"/>
+          <img src={full} height="20" width="20"/>
+          <img src={full} height="20" width="20"/>
+          <img src={half} height="20" width="20"/>
+          <img src={empty} height="20" width="20"/>
         </div>
       )
     }
     if (num === 3) {
       return (
         <div>
-          <img src={full} height="24" width="24"/>
-          <img src={full} height="24" width="24"/>
-          <img src={full} height="24" width="24"/>
-          <img src={empty} height="24" width="24"/>
-          <img src={empty} height="24" width="24"/>
+          <img src={full} height="20" width="20"/>
+          <img src={full} height="20" width="20"/>
+          <img src={full} height="20" width="20"/>
+          <img src={empty} height="20" width="20"/>
+          <img src={empty} height="20" width="20"/>
         </div>
       )
     }
