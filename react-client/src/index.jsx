@@ -9,10 +9,12 @@ class App extends React.Component {
     super(props);
     this.state = { 
       data: [],
-      ids: []
+      ids: [],
+      search: []
     }
     this.reviewStars = this.reviewStars.bind(this);
     this.setProperty = this.setProperty.bind(this);
+    this.search = this.search.bind(this);
   }
 
   componentDidMount() {
@@ -41,9 +43,9 @@ class App extends React.Component {
   }
 
   reviewStars(num) {
-    var full = 'https://i.imgur.com/f4lW7l6.jpg';
-    var half = 'https://i.imgur.com/rADZBcr.jpg';
-    var empty = 'https://i.imgur.com/eOIxGeh.jpg';
+    var full = 'https://i.imgur.com/gPywEat.gif';
+    var half = 'https://i.imgur.com/sP8vQe1.gif';
+    var empty = 'https://i.imgur.com/crXE6xw.gif';
     if (num === 5) {
       return (
         <div>
@@ -115,6 +117,14 @@ class App extends React.Component {
     });
   }
 
+  search (string) {
+    fetch('/comments/' + string)
+    .then((res)=> res.json())
+    .then((data)=>this.setState({
+      search: data
+    }));
+  }
+
   render () {
     return (
       <div>
@@ -128,6 +138,7 @@ class App extends React.Component {
       <Ratings
         data={this.state.data}
         star={this.reviewStars}
+        search={this.search}
       />
       <Posts
         data={this.state.data}

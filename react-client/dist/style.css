@@ -10,3 +10,8 @@ h2 {
 .side {
 	display: inline-block;
 }
+
+.middle-container {
+	display: flex;
+	width: 100%;
+}

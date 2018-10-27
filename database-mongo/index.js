@@ -66,8 +66,9 @@ var insertOne = function(property, callback) {
   fireBnb.create(property, callback);
 }
 
-var searchComments = function(query, callback) {
-  fireBnb.find({ "reviews.comment" : query }, function(err, data) {
+var searchComments = function(string, callback) {
+  // db.getCollection('properties').find({"reviews.comment" : {$regex : '.*String.*'}})
+  fireBnb.find({"reviews.comment" : {$regex : `.*${string}.*`}}, function(err, data) {
     if(err) {
       callback(err, null);
     } else {

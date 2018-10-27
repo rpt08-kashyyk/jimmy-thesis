@@ -25,6 +25,15 @@ app.get('/data/:id', function (req, res) {
 	})
 });
 
+app.get('/comments/:query', function (req, res) {
+  db.searchComments(req.params.query, function (err, data){
+    if (err) {
+      console.log(err);
+    }
+    res.send(data);
+  })
+});
+
 // app.get('/property/:id', function (req, res) {
 //   db.selectProperty((data) => {
 //     res.send(req.params.id);
