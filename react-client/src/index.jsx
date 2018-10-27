@@ -42,7 +42,7 @@ class App extends React.Component {
 
   reviewStars(num) {
     var full = 'https://i.imgur.com/f4lW7l6.jpg';
-    var half = 'https://i.imgur.com/qrFidbO.jpg';
+    var half = 'https://i.imgur.com/rADZBcr.jpg';
     var empty = 'https://i.imgur.com/eOIxGeh.jpg';
     if (num === 5) {
       return (
@@ -119,6 +119,7 @@ class App extends React.Component {
     return (
       <div>
       <select onChange={(e) => this.setProperty(parseInt(e.target.value))}>
+      <option defaultValue>Select Property</option>
         {this.state.ids.map((property, i)=>
             <option key={i + 1}>{property._id}</option>
           )
