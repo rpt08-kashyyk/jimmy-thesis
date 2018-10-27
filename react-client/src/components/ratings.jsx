@@ -9,7 +9,6 @@ const Ratings = (props) => (
        <input
          placeholder="Search reviews"
        />
-       <p></p>
      </form>
 	    	<hr></hr>
 	    	{`Accuracy `}{props.star(post.accuracy)}{` Location `}{props.star(post.location)}<br></br>

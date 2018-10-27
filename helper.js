@@ -251,6 +251,36 @@ function reviewAvgNum(raw) {
   }
 }
 
+function profile(raw) {
+  var jimmy = 'https://i.imgur.com/VDxIE08.gif';
+  var luda = 'https://i.imgur.com/mYZvWZr.gif';
+  var magee = 'https://i.imgur.com/a9oDsew.gif';
+  var rupa = 'https://i.imgur.com/1zLVJ2X.gif';
+  var roy = 'https://i.imgur.com/1h954hk.gif';
+  for (var i = 0; i < raw.length; i++) {
+    for (var j = 0; j < raw[i].reviews.length; j++) {
+      var num = Math.floor((Math.random() * 5) + 1);
+      if (num === 1) {
+        raw[i].reviews[j].userImage = jimmy;
+      }
+      if (num === 2) {
+        raw[i].reviews[j].userImage = luda;
+      }
+      if (num === 3) {
+        raw[i].reviews[j].userImage = magee;
+      }
+      if (num === 4) {
+        raw[i].reviews[j].userImage = rupa;
+      }
+      if (num === 5) {
+        raw[i].reviews[j].userImage = roy;
+      }
+    }
+  }
+}
+
+profile(data);
+
 mergeObjs(data);
 fixDates(data);
 makeTotal(data);
