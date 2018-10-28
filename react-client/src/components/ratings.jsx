@@ -12,13 +12,20 @@ const Ratings = (props) => (
        />
      </form>
 	    	<hr></hr>
-	    	{`Accuracy `}{props.star(post.accuracy)}
-				{`Communication `}{props.star(post.communication)}
-				{`Cleanliness `}{props.star(post.cleanliness)}
+	    	<div className="middle-container">
+	    	{'Accuracy'}{props.star(post.accuracy)}
+	    	{'Location'}{props.star(post.location)}
+				</div>
 	    	<br></br>
-	    	{` Location `}{props.star(post.location)}
-	    	{` Check-in `}{props.star(post.checkin)}
-	    	{` Value `}{props.star(post.value)}
+	    	<div className="middle-container">
+	    	{'Communication'}{props.star(post.communication)}
+	    	{'Check-in'}{props.star(post.checkin)}
+	    	</div>
+	    	<br></br>
+	    	<div className="middle-container">
+	    	{'Cleanliness'}{props.star(post.cleanliness)}
+	    	{'Value'}{props.star(post.value)}
+	    	</div>
 	    	<br></br>
 	    	<hr></hr>
     	</div>
