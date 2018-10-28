@@ -4,13 +4,15 @@ const Ratings = (props) => (
   <div>
     {props.data.map((post) =>
     	<div key={post._id}>
-	    	<h2>{`${post.totalReviews.total} Reviews `}{props.star(post.totalReviews.average)}</h2>
+    	<div className="top-bar">
+	    	{`${post.totalReviews.total} Reviews `}{props.star(post.totalReviews.average)}
  			<form>
        <input
          placeholder="Search reviews"
          onChange={(e) => props.search(e.target.value)}
        />
      </form>
+     </div>
 	    	<hr></hr>
 	    	<div className="middle-container">
 	    	{'Accuracy'}{props.star(post.accuracy)}
@@ -27,7 +29,6 @@ const Ratings = (props) => (
 	    	{'Value'}{props.star(post.value)}
 	    	</div>
 	    	<br></br>
-	    	<hr></hr>
     	</div>
     )}
   </div>
