@@ -44,7 +44,7 @@ var fireBnb = mongoose.model('Property', fireSchema);
 
 var selectAll = function(callback) {
   fireBnb.find({}, function(err, data) {
-    if(err) {
+    if (err) {
       callback(err, null);
     } else {
       callback(null, data);
@@ -54,7 +54,7 @@ var selectAll = function(callback) {
 
 var selectId = function(id, callback) {
   fireBnb.find({_id: id}, function(err, data) {
-    if(err) {
+    if (err) {
       callback(err, null);
     } else {
       callback(null, data);
@@ -69,7 +69,7 @@ var insertOne = function(property, callback) {
 var searchComments = function(string, callback) {
   // db.getCollection('properties').find({"reviews.comment" : {$regex : '.*String.*'}})
   fireBnb.find({"reviews.comment" : {$regex : `.*${string}.*`}}, function(err, data) {
-    if(err) {
+    if (err) {
       callback(err, null);
     } else {
       callback(null, data);

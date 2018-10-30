@@ -8,7 +8,7 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 
 app.get('/data', function (req, res) {
   db.selectAll(function(err, data) {
-    if(err) {
+    if (err) {
       res.sendStatus(500);
     } else {
       res.json(data);
@@ -17,21 +17,21 @@ app.get('/data', function (req, res) {
 });
 
 app.get('/data/:id', function (req, res) {
-	db.selectId(req.params.id, function (err, data){
+	db.selectId(req.params.id, function (err, data) {
 		if (err) {
 			console.log(err);
 		}
   	res.send(data);
-	})
+	});
 });
 
 app.get('/comments/:query', function (req, res) {
-  db.searchComments(req.params.query, function (err, data){
+  db.searchComments(req.params.query, function (err, data) {
     if (err) {
       console.log(err);
     }
     res.send(data);
-  })
+  });
 });
 
 // app.get('/property/:id', function (req, res) {

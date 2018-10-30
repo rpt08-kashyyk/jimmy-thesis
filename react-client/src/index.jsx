@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import Posts from './components/posts.jsx'
-import Ratings from './components/ratings.jsx'
+import Posts from './components/posts.jsx';
+import Ratings from './components/ratings.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -119,8 +119,8 @@ class App extends React.Component {
 
   search (string) {
     fetch('/comments/' + string)
-    .then((res)=> res.json())
-    .then((data)=>this.setState({
+    .then((res) => res.json())
+    .then((data) =>this.setState({
       search: data
     }));
   }
