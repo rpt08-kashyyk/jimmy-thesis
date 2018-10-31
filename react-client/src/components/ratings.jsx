@@ -14,6 +14,7 @@ const Ratings = (props) => (
 		     	</form>
 		    </div>
 		    	<hr></hr>
+		    	<br></br>
 		    <div className="middle-container">
 		    	{'Accuracy'}{props.star(post.accuracy)}
 		    	{'Location'}{props.star(post.location)}
@@ -28,7 +29,6 @@ const Ratings = (props) => (
 		    	{'Cleanliness'}{props.star(post.cleanliness)}
 		    	{'Value'}{props.star(post.value)}
 		    </div>
-		    	<br></br>
     	</div>
     )}
   </div>
