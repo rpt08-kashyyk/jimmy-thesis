@@ -2,10 +2,10 @@ import React from 'react';
 
 const Ratings = (props) => (
   <div>
-    {props.data.map((post) =>
-    	<div key={post._id}>
+    {props.property.map((listing) =>
+    	<div key={listing._id}>
 	    	<div className="top-bar">
-		    	{`${post.totalReviews.total} Reviews `}{props.star(post.totalReviews.average)}
+		    	{`${listing.totalReviews.total} Reviews`}<div className="top-star">{props.star(listing.totalReviews.average)}</div>
 	 				<form>
 		      	<input
 		         placeholder="Search reviews"
@@ -15,16 +15,16 @@ const Ratings = (props) => (
 		    </div>
 		    	<hr></hr>
 		    <div className="middle-container">
-		    	{'Accuracy'}{props.star(post.accuracy)}
-		    	{'Location'}{props.star(post.location)}
+		    	<div className="accuracy">{'Accuracy'}</div>{props.star(listing.accuracy)}
+		    	<div className="location">{'Location'}</div>{props.star(listing.location)}
 				</div>
 		    <div className="middle-container">
-		    	{'Communication'}{props.star(post.communication)}
-		    	{'Check-in'}{props.star(post.checkin)}
+		    	<div className="communication">{'Communication'}</div>{props.star(listing.communication)}
+		    	<div className="checkin">{'Check-in'}</div>{props.star(listing.checkin)}
 		    </div>
 		    <div className="middle-container">
-		    	{'Cleanliness'}{props.star(post.cleanliness)}
-		    	{'Value'}{props.star(post.value)}
+		    	<div className="cleanliness">{'Cleanliness'}</div>{props.star(listing.cleanliness)}
+		    	<div className="value">{'Value'}</div>{props.star(listing.value)}
 		    </div>
     	</div>
     )}

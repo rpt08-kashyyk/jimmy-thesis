@@ -279,12 +279,11 @@ function profile(raw) {
   }
 }
 
-profile(data);
-
 mergeObjs(data);
 fixDates(data);
 makeTotal(data);
 addAvgkeys(data);
 addSum(data);
 roundNearest10th(data);
+profile(data);
 clean(data);

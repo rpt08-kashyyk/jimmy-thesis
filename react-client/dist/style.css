@@ -20,5 +20,42 @@
 
 .profile {
 	float: left;
-	padding-right: 12px;
+	padding-right: 13px;
+}
+
+.star {
+	padding-right: 35px; 
+}
+
+.comment {
+	width: 500px;
+}
+
+.top-star {
+	padding-left: 10px;
+	padding-right: 20px;
+}
+
+.accuracy {
+	padding-right: 65px;
+}
+
+.location {
+	padding-right: 55px;
+}
+
+.communication {
+	padding-right: 20px;
+}
+
+.checkin {
+	padding-right: 54px;
+}
+
+.cleanliness {
+	padding-right: 50px;
+}
+
+.value {
+	padding-right: 76px;
 }

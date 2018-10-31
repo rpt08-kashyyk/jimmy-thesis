@@ -7,9 +7,9 @@ import Ratings from './components/ratings.jsx';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      data: [],
+    this.state = {
       ids: [],
+      property: [],
       search: []
     }
     this.reviewStars = this.reviewStars.bind(this);
@@ -22,7 +22,7 @@ class App extends React.Component {
       url: '/data/1', 
       success: (data) => {
         this.setState({
-          data: data
+          property: data
         })
       },
       error: (err) => {
@@ -48,7 +48,7 @@ class App extends React.Component {
     var empty = 'https://i.imgur.com/crXE6xw.gif';
     if (num === 5) {
       return (
-        <div>
+        <div className="star">
           <img src={full} height="20" width="20"/>
           <img src={full} height="20" width="20"/>
           <img src={full} height="20" width="20"/>
@@ -59,7 +59,7 @@ class App extends React.Component {
     }
     if (num === 4.5) {
       return (
-        <div>
+        <div className="star">
           <img src={full} height="20" width="20"/>
           <img src={full} height="20" width="20"/>
           <img src={full} height="20" width="20"/>
@@ -70,7 +70,7 @@ class App extends React.Component {
     }
     if (num === 4) {
       return (
-        <div>
+        <div className="star">
           <img src={full} height="20" width="20"/>
           <img src={full} height="20" width="20"/>
           <img src={full} height="20" width="20"/>
@@ -81,7 +81,7 @@ class App extends React.Component {
     }
     if (num === 3.5) {
       return (
-        <div>
+        <div className="star">
           <img src={full} height="20" width="20"/>
           <img src={full} height="20" width="20"/>
           <img src={full} height="20" width="20"/>
@@ -92,7 +92,7 @@ class App extends React.Component {
     }
     if (num === 3) {
       return (
-        <div>
+        <div className="star">
           <img src={full} height="20" width="20"/>
           <img src={full} height="20" width="20"/>
           <img src={full} height="20" width="20"/>
@@ -103,12 +103,12 @@ class App extends React.Component {
     }
   }
 
-  setProperty (id) {
+  setProperty(id) {
     $.ajax({
       url: '/data/' + id, 
       success: (data) => {
         this.setState({
-          data: data
+          property: data
         })
       },
       error: (err) => {
@@ -117,7 +117,7 @@ class App extends React.Component {
     });
   }
 
-  search (string) {
+  search(string) {
     fetch('/comments/' + string)
     .then((res) => res.json())
     .then((data) =>this.setState({
@@ -125,7 +125,7 @@ class App extends React.Component {
     }));
   }
 
-  render () {
+  render() {
     return (
       <div>
       <select onChange={(e) => this.setProperty(parseInt(e.target.value))}>
@@ -136,12 +136,12 @@ class App extends React.Component {
         }
       </select>
       <Ratings
-        data={this.state.data}
+        property={this.state.property}
         star={this.reviewStars}
         search={this.search}
       />
       <Posts
-        data={this.state.data}
+        property={this.state.property}
       />
       </div>
     )
