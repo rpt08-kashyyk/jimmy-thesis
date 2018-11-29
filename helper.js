@@ -279,6 +279,22 @@ function profile(raw) {
   }
 }
 
+function addPropIdToReview(raw) {
+  for (var i = 0; i < raw.length; i++) {
+    for (var j = 0; j < raw[i].reviews.length; j++) {
+      raw[i].reviews[j].propertyId = raw[i]._id;
+    }
+  }
+}
+
+function transfer(raw) {
+  for (var i = 0; i < raw.length; i++) {
+    for (var j = 0; j < raw[i].reviews.length; j++) {
+      reviews.push(raw[i].reviews[j]);
+    }
+  }
+}
+
 mergeObjs(data);
 fixDates(data);
 makeTotal(data);

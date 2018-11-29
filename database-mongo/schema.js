@@ -17,7 +17,8 @@
          username: String,
          date: String,
          comment: String,
-         userImage: String
+         userImage: String,
+         propertyId: Number
       }
    ],
    totalReviews: {

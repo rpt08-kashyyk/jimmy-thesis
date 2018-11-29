@@ -30,7 +30,8 @@ var fireSchema = mongoose.Schema({
       username: String,
       date: String,
       comment: String,
-      userImage: String
+      userImage: String,
+      propertyId: Number
     }
   ],
   totalReviews: {
@@ -40,10 +41,35 @@ var fireSchema = mongoose.Schema({
   flag: String
 });
 
+var reviewSchema = mongoose.Schema({
+  accuracy: Number,
+  communication: Number,
+  cleanliness: Number,
+  location: Number,
+  checkin: Number,
+  value: Number,
+  username: String,
+  date: String,
+  comment: String,
+  userImage: String,
+  propertyId: Number
+});
+
 var fireBnb = mongoose.model('Property', fireSchema);
+var reviewBnb = mongoose.model('Review', reviewSchema);
 
 var selectAll = function(callback) {
   fireBnb.find({}, function(err, data) {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, data);
+    }
+  }).sort({_id: 1});
+};
+
+var selectMessages = function(callback) {
+  reviewBnb.find({}, function(err, data) {
     if (err) {
       callback(err, null);
     } else {
@@ -66,9 +92,35 @@ var insertOne = function(property, callback) {
   fireBnb.create(property, callback);
 }
 
-var searchComments = function(string, callback) {
+var insertReview = function(property, callback) {
+  reviewBnb.create(property, callback);
+}
+
+// var searchComments = function(string, callback) {
+//   // db.getCollection('properties').find({"reviews.comment" : {$regex : '.*String.*'}})
+//   fireBnb.find({"reviews.comment" : {$regex : `.*${string}.*`}}, function(err, data) {
+//     if (err) {
+//       callback(err, null);
+//     } else {
+//       callback(null, data);
+//     }
+//   });
+// };
+
+var messageId = function(id, callback) {
+  reviewBnb.find({propertyId : id}, function(err, data) {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, data);
+    }
+  });
+};
+
+// db.getCollection('reviews').find({"propertyId" : 84 , "date": 'June 2017'})
+var searchComments = function(id, string, callback) {
   // db.getCollection('properties').find({"reviews.comment" : {$regex : '.*String.*'}})
-  fireBnb.find({"reviews.comment" : {$regex : `.*${string}.*`}}, function(err, data) {
+  reviewBnb.find({"propertyId" : id , "comment" : {$regex : `.*${string}.*`}}, function(err, data) {
     if (err) {
       callback(err, null);
     } else {
@@ -88,7 +140,10 @@ var searchComments = function(string, callback) {
 // };
 
 module.exports.selectAll = selectAll;
+module.exports.selectMessages = selectMessages;
 module.exports.selectId = selectId;
 module.exports.insertOne = insertOne;
+module.exports.messageId = messageId;
+module.exports.insertReview = insertReview;
 module.exports.searchComments = searchComments;
 // module.exports.selectProperty = selectProperty;

@@ -25,8 +25,27 @@ app.get('/data/:id', function (req, res) {
 	});
 });
 
-app.get('/comments/:query', function (req, res) {
-  db.searchComments(req.params.query, function (err, data) {
+app.get('/message/:id/:query', function (req, res) {
+  db.searchComments(req.params.id, req.params.query, function (err, data) {
+    if (err) {
+      console.log(err);
+    }
+    res.send(data);
+  });
+});
+
+app.get('/message', function (req, res) {
+  db.selectMessages(function(err, data) {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      res.json(data);
+    }
+  });
+});
+
+app.get('/message/:id', function (req, res) {
+  db.messageId(req.params.id, function (err, data) {
     if (err) {
       console.log(err);
     }

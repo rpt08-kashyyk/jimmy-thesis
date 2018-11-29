@@ -9,8 +9,10 @@ class App extends React.Component {
     super(props);
     this.state = {
       ids: [],
+      messages: [],
       property: [],
-      search: []
+      search: [],
+      test: []
     }
     this.reviewStars = this.reviewStars.bind(this);
     this.setProperty = this.setProperty.bind(this);
@@ -34,6 +36,17 @@ class App extends React.Component {
       success: (data) => {
         this.setState({
           ids: data
+        })
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    });
+    $.ajax({
+      url: '/message/', 
+      success: (data) => {
+        this.setState({
+          messages: data
         })
       },
       error: (err) => {
@@ -117,11 +130,11 @@ class App extends React.Component {
     });
   }
 
-  search(string) {
-    fetch('/comments/' + string)
+  search(id, string) {
+    fetch('/message/' + id + '?' + string)
     .then((res) => res.json())
     .then((data) =>this.setState({
-      search: data
+      test: data
     }));
   }
 

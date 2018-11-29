@@ -9,7 +9,7 @@ const Ratings = (props) => (
 	 				<form>
 		      	<input
 		         placeholder="Search reviews"
-		         onChange={(e) => props.search(e.target.value)}
+		         onChange={(e) => props.search(84, e.target.value)}
 		       	/>
 		     	</form>
 		    </div>
