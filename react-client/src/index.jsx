@@ -141,13 +141,23 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      <select onChange={(e) => this.setProperty(parseInt(e.target.value))}>
-      <option defaultValue>Select Property</option>
-        {this.state.ids.map((property, i)=>
-            <option key={i + 1}>{property._id}</option>
-          )
-        }
-      </select>
+      <form>
+        <input
+        placeholder="property id"
+        onChange={(e) => 
+          $.ajax({
+            url: '/data/' + e.target.value, 
+            success: (data) => {
+              this.setState({
+                property: data
+              })
+            },
+            error: (err) => {
+              console.log('err', err);
+            }
+          })}
+        />
+      </form>
       <Ratings
         property={this.state.property}
         star={this.reviewStars}
